@@ -78,6 +78,11 @@ public class PersonOverviewController {
             birthdayLabel.setText("");
         }
     }
+    @FXML
+    private void handleDeletePerson() {
+        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        personTable.getItems().remove(selectedIndex);
+    }
 
     /**
      * É chamado pela aplicação principal para dar uma referência de volta a si mesmo.
