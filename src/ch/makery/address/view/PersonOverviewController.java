@@ -95,6 +95,37 @@ public class PersonOverviewController {
                 .showWarning();
         }
     }
+    @FXML
+    private void handleNewPerson() {
+        Person tempPerson = new Person();
+        boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+        if (okClicked) {
+            mainApp.getPersonData().add(tempPerson);
+        }
+    }
+
+    /**
+     * Chamado quando o usuário clica no botão edit. Abre a janela para editar
+     * detalhes da pessoa selecionada.
+     */
+    @FXML
+    private void handleEditPerson() {
+        Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+        if (selectedPerson != null) {
+            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+            if (okClicked) {
+                showPersonDetails(selectedPerson);
+            }
+
+        } else {
+            // Nada seleciondo.
+            Dialogs.create()
+                .title("Nenhuma seleção")
+                .masthead("Nenhuma Pessoa Selecionada")
+                .message("Por favor, selecione uma pessoa na tabela.")
+                .showWarning();
+        }
+    }
     /**
      * É chamado pela aplicação principal para dar uma referência de volta a si mesmo.
      * 
