@@ -22,6 +22,13 @@ public class RootLayoutController {
     private MainApp mainApp;
 
     /**
+     * Abre as estatísticas de aniversário.
+     */
+    @FXML
+    private void handleShowBirthdayStatistics() {
+      mainApp.showBirthdayStatistics();
+    }
+    /**
      * É chamado pela aplicação principal para referenciar a si mesma.
      * 
      * @param mainApp
